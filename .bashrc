@@ -5,8 +5,8 @@
 # properly otherwise it won't work
 ################################################
 
-DOCKER_DIR='/c/Users/marcin/docker/';
-DEFINITIONS_DIR='/Users/marcin/docker/definitions/';
+DOCKER_DIR='/var/www/docker/docker/';
+DEFINITIONS_DIR='/var/www/docker/docker/definitions/';
 TEMPLATE_DIR=$DOCKER_DIR'templates/';
 PROJECT_DIR=$DOCKER_DIR'projects/';
 LOCAL_SHARE_DIRECTORY=$DOCKER_DIR'local_share/';

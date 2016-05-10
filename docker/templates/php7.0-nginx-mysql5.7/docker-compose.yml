@@ -40,7 +40,7 @@ db:
      - 3306
   volumes:
     - ${projectdir}${domain}/mysql/data/:/var/lib/mysql/
-    - ${projectdir}${domain}/mysql/conf.d/:/etc/mysql/conf.d/source
+    - ${projectdir}${domain}/mysql/conf.d/:/etc/mysql/conf.d
     - ${projectdir}${domain}/mysql/log/:/var/log/mysql/
   ports:
     - "${dbPort}:3306"
