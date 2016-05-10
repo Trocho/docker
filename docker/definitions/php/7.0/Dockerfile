@@ -53,6 +53,9 @@ RUN sed -i -e "s#logfile=/tmp/supervisord.log ;#logfile=/var/log/supervisor/supe
 RUN sed -i -e "s#;\[include\]#\[include\]#g" /etc/supervisord.conf
 RUN sed -i -e "s#;files = relative/directory/\*.ini#files = /etc/supervisor/conf.d/\*.conf#g" /etc/supervisord.conf
 
+# 
+RUN chmod -R 777 /usr/local/etc/php/conf.d/*
+
 # Copy .bashrc file
 COPY .bashrc /root/.bashrc
 
