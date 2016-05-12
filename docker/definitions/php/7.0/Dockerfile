@@ -32,7 +32,7 @@ RUN apt-get install --yes libxml2-dev
 RUN apt-get install --yes zlib1g-dev
 
 # Install some basic php extensions
-RUN docker-php-ext-install pdo pdo_mysql gettext mysqli soap zip opcache
+RUN docker-php-ext-install pdo && docker-php-ext-install pdo_mysql && docker-php-ext-install gettext && docker-php-ext-install mysqli && docker-php-ext-install soap && docker-php-ext-install zip && docker-php-ext-install opcache && docker-php-ext-install gettext
 
 # Install xdebug
 RUN pecl install xdebug
@@ -61,6 +61,8 @@ COPY .bashrc /root/.bashrc
 
 # Copy services script file
 COPY start.sh /root/start.sh
+
+RUN echo 'Europe/Warsaw' > /etc/timezone
 
 # Run services file
 CMD ["/bin/bash", "/root/start.sh"]
