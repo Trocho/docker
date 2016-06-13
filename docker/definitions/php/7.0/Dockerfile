@@ -32,7 +32,20 @@ RUN apt-get install --yes libxml2-dev
 RUN apt-get install --yes zlib1g-dev
 
 # Install some basic php extensions
-RUN docker-php-ext-install pdo && docker-php-ext-install pdo_mysql && docker-php-ext-install gettext && docker-php-ext-install mysqli && docker-php-ext-install soap && docker-php-ext-install zip && docker-php-ext-install opcache && docker-php-ext-install gettext
+RUN docker-php-ext-install pdo pdo_mysql gettext mysqli soap zip opcache gettext mbstring
+
+# Install mcrypt extension
+RUN apt-get install -y \
+    libmcrypt-dev \
+    libssl-dev &&\
+    docker-php-ext-install mcrypt
+
+# Install gd
+RUN apt-get install -y \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libpng12-dev &&\
+    docker-php-ext-install gd
 
 # Install xdebug
 RUN pecl install xdebug
